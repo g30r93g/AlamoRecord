@@ -17,12 +17,27 @@ AlamoRecord is a powerful yet simple framework that eliminates the often complex
 
 ## Installation
 
-AlamoRecord is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+AlamoRecord is available through [CocoaPods](http://cocoapods.org) or SPM
+
+### Cocoapods
+
+Simply add the following line to your Podfile:
 
 ```ruby
 pod 'AlamoRecord'
 ```
+
+### Swift Package Manager
+
+Simply add the following to your Package.swift file:
+
+```swift
+dependencies: [
+    // Dependencies declare other packages that this package depends on.
+     .package(url: "https://github.com/Alamofire/AlamoRecord", from: "2.2.2"),
+],
+```
+
 
 ## Getting Started
 
@@ -75,8 +90,8 @@ Let's assume our API returns custom error messages. Let's create a class that in
 
 ```json
 {
-	"status_code": 401,
-	"message": "You are not authorized to make this request.",
+    "status_code": 401,
+    "message": "You are not authorized to make this request.",
 }
 ```
 
@@ -107,11 +122,11 @@ We next need to create an instance of a `RequestManager` and pass in the `Applic
 ```swift
 // IDType should be of type String or Int
 class ApplicationRequestManager: RequestManager<ApplicationURL, ApplicationError, IDType> {
-   	
+       
     static var `default`: ApplicationRequestManager = ApplicationRequestManager()
     
     init() {
-    	// See the Configuration documentation for all possible options
+        // See the Configuration documentation for all possible options
         super.init(configuration: Configuration())
     }
 }
@@ -159,10 +174,10 @@ With this class definition, we would expect each `Post` json to look like this:
 
 ```json
 {
-	"userId": 1,
-	"id": 1,
-	"title": "This is a post's title",
-	"body": "This is the post's body"
+    "userId": 1,
+    "id": 1,
+    "title": "This is a post's title",
+    "body": "This is the post's body"
 }
 ```
 
@@ -170,12 +185,12 @@ If our `Post` object was encapsulated in an object like this:
 
 ```json
 {
-	"post": {
-		"userId": 1,
-		"id": 1,
-		"title": "This is a post's title",
-		"body": "This is the post's body"
-	}
+    "post": {
+        "userId": 1,
+        "id": 1,
+        "title": "This is a post's title",
+        "body": "This is the post's body"
+    }
 }
 ```
 
@@ -213,9 +228,9 @@ let parameters: [String: Any] = ["userId": user.id,
                                  "body": body]
                                     
 Post.create(parameters: parameters, success: { (post: Post) in
-	// Do something with the post          
+    // Do something with the post          
 }) { (error) in
-	// Handle the error            
+    // Handle the error            
 }
 ```
 
@@ -225,9 +240,9 @@ Post.create(parameters: parameters, success: { (post: Post) in
 
 ```swift
 Post.find(id: 1, success: { (post: Post) in
-	// Do something with the post
+    // Do something with the post
 }) { (error) in
-   	// Handle the error        
+       // Handle the error        
 }
 ```
 
@@ -241,18 +256,18 @@ let parameters: [String: Any] = ["userId": user.id,
                                  "body": body]
                                     
 post.update(parameters: parameters, success: { (post: Post) in
-	// Do something with the post     
+    // Do something with the post     
 }) { (error) in
-	// Handle the error     
+    // Handle the error     
 }
 ```
 This can also be done at the class level:
 
 ```swift
 Post.update(id: 1, parameters: parameters, success: { (post: Post) in
-	// Do something with the post    
+    // Do something with the post    
 }) { (error) in
-   	// Handle the error        
+       // Handle the error        
 }
 ```
 
@@ -262,18 +277,18 @@ Post.update(id: 1, parameters: parameters, success: { (post: Post) in
 
 ```swift
 post.destroy(id: 1, success: { 
-	// The post is now destroyed       
+    // The post is now destroyed       
 }) { (error) in
-	// Handle the error   
+    // Handle the error   
 }
 ```
 This can also be done at the class level:
 
 ```swift
 Post.destroy(id: 1, success: { 
-	// The post is now destroyed       
+    // The post is now destroyed       
 }) { (error) in
-	// Handle the error   
+    // Handle the error   
 }
 ```
 
@@ -284,9 +299,9 @@ requestManager.upload(url: url,
                       multipartFormData: data,
                       multipartFormDataName: dataName,
                       success: { (any: Any?) in
-   	// Upload was successful                                           
+       // Upload was successful                                           
 }) { (error) in
-	// Handle the error      
+    // Handle the error      
 }
 ```
 
