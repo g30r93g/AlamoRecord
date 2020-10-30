@@ -17,12 +17,14 @@ AlamoRecord is a powerful yet simple framework that eliminates the often complex
 
 ## Installation
 
-AlamoRecord is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+AlamoRecord is available through [CocoaPods](http://cocoapods.org) and Swift Package Manager.
+To install it via CocoaPods, simply add the following line to your Podfile:
 
 ```ruby
 pod 'AlamoRecord'
 ```
+
+To install it via Swift Package Manager, add `https://github.com/tunespeak/AlamoRecord.git` to your project's package manifest.
 
 ## Getting Started
 

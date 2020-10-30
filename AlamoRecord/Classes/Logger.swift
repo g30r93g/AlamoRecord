@@ -17,6 +17,7 @@
  */
 
 import Alamofire
+import Foundation
 
 class Logger: NSObject {
 

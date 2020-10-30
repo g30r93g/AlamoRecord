@@ -17,6 +17,7 @@
  */
 
 import Alamofire
+import Foundation
 
 open class AlamoRecordObject<U: AlamoRecordURL, E: AlamoRecordError, IDType: Codable>: NSObject, Codable {
     

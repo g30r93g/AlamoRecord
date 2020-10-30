@@ -17,6 +17,7 @@
  */
 
 import Alamofire
+import Foundation
 
 open class RequestManager<Url: AlamoRecordURL, ARError: AlamoRecordError, IDType: Codable>: NSObject {
     
